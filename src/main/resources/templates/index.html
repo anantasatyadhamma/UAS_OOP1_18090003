@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Aplikasi Rekam Data Mahasiswa</title>
+    <link href="/css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div
+      th:switch="${mhs}"
+      style="
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div
+        style="
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <h2 th:case="null">Tidak ada data</h2>
+        <div
+          th:case="*"
+          style="
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+          "
+        >
+          <a href="/tambah" id="btn-tambah"><div>Tambah</div></a>
+          <table style="width: 100%; margin-top: 40px;">
+            <thead>
+              <tr>
+                <th>NIM</th>
+                <th>Nama</th>
+                <th>Jurusan</th>
+                <th>Alamat</th>
+                <th>Opsi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="mhs : ${mhs}">
+                <td th:text="${mhs.nim}"></td>
+                <td th:text="${mhs.nama}"></td>
+                <td th:text="${mhs.jurusan}"></td>
+                <td th:text="${mhs.alamat}"></td>
+                <td id="action">
+                  <a th:href="@{/ubah/{nim}(nim=${mhs.nim})}" class="btn"
+                    >Ubah</a
+                  ><a th:href="@{/hapus/{nim}(nim=${mhs.nim})}" class="btn"
+                    >Hapus</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

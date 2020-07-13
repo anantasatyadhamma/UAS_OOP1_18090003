@@ -1,0 +1,24 @@
+h3 {
+  margin-left: 60px;
+}
+
+td {
+  padding: 10px;
+}
+.inputan {
+  height: 25px;
+  width: 170px;
+  margin-left: 30px;
+}
+#btn {
+  width: 170px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: blue;
+  border: 1px solid black;
+  color: white;
+  font-weight: bold;
+  margin-left: 30px;
+}
